@@ -1,0 +1,28 @@
+service: babynames-lambda
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
+  timeout: 15
+  environment:
+      OPEN_API_KEY: ${env:OPEN_API_KEY}
+      DB_USER: ${env:DB_USER}
+      DB_NAME: ${env:DB_NAME}
+      DB_HOST: ${env:DB_HOST}
+
+functions:
+  processCharge:
+    handler: handler.handler
+    events:
+      - http:
+          path: /names
+          method: post
+          cors:
+            origin: '*'
+
+
+plugins:
+  - serverless-plugin-typescript
+
+useDotenv: true
