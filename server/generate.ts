@@ -42,19 +42,22 @@ const createCompletion = (prompt: string) => {
 }
 
 export const createBabyNames = async (gender: string, description: string, lastName: string, attributes: Array<string>) => {
+    let result = {};
     const prompt = createBabyNamePrompt(gender, description, lastName, attributes);
     const completion = await createCompletion(prompt);
 
     const choices = completion.data.choices;
-    const content = choices[0]['message']['content'];
+    result = choices[0]['message']['content'];
+
+    const attributeString = (attributes instanceof Array) ? attributes.join(', ') : attributes;
 
     // Save result to DB.
     await query(
-        'insert into name_results(gender, description, last_name, attributes, content) values (?, ?, ?, ?, ?)',
-        [gender, description, lastName, attributes, content]
+        'insert into name_results(gender, description, last_name, attributes, result) values (?, ?, ?, ?, ?)',
+        [gender, description, lastName, attributeString, result]
     )
 
-    return {'names': content};
+    return { 'names': result };
 };
 
 

@@ -8,7 +8,7 @@ import Head from 'next/head'
 import React, { useState } from 'react'
 
 // https://stripe.com/docs/payments/accept-a-payment-charges?platform=web
-const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
+// const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
 
 export default function Names() {
     const [data, setData] = React.useState<NamingForm>({

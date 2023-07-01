@@ -2,6 +2,7 @@ import {config} from 'dotenv';
 config();
 
 import { createBabyNames } from "./generate";
+import { quitConnection } from './connection';
 
 const gender = 'female'
 const attributes = ['strong', 'outgoing', 'kind']
@@ -16,6 +17,7 @@ async function generate() {
         gender, description, lastName, attributes
     )
     console.log('names', names)
+    await quitConnection()
 }
 
 generate()
