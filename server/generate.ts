@@ -52,10 +52,15 @@ export const createBabyNames = async (gender: string, description: string, lastN
     const attributeString = (attributes instanceof Array) ? attributes.join(', ') : attributes;
 
     // Save result to DB.
-    await query(
-        'insert into name_results(gender, description, last_name, attributes, result) values (?, ?, ?, ?, ?)',
-        [gender, description, lastName, attributeString, result]
-    )
+    try {
+        await query(
+            'insert into name_results(gender, description, last_name, attributes, result) values (?, ?, ?, ?, ?)',
+            [gender, description, lastName, attributeString, result]
+        )
+    } catch (e) {
+        // TODO: add additional error reporting.
+        console.error('error saving name result to db', e)
+    }
 
     return { 'names': result };
 };

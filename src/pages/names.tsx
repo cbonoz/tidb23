@@ -66,13 +66,12 @@ export default function Names() {
             <Head>
                 <title>Babynaming.pro | Generate</title>
             </Head>
-            <Header />
             <main className="flex flex-1 w-full flex-col x-4 mt-12 sm:mb-0 mb-8">
                 <h1 className="mx-auto max-w-4xl font-display text-4xl font-bold tracking-normal text-slate-100 sm:text-6xl mb-5">
                     Generate your <span className="text-orange-600">dream</span> baby name
                 </h1>
 
-
+                {/* <label className='text-white'>Enter last name</label> */}
                 <input
                     className="bg-slate-900 rounded-xl text-white font-medium px-4 py-3 sm:mt-10 mt-8 transition"
                     type="text"

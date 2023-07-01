@@ -1,3 +1,4 @@
+import { GITHUB_LINK } from "@/util/constants";
 import Link from "next/link";
 
 export default function Footer() {
@@ -12,7 +13,8 @@ export default function Footer() {
           className="font-bold hover:underline transition hover:text-gray-300 underline-offset-2"
         >
           OpenAI
-        </a>
+        </a>.&nbsp;Built for the TiDB 2023 hackathon.
+
       </div>
       <div className="flex space-x-4 pb-4 sm:pb-0">
         <Link
@@ -28,7 +30,7 @@ export default function Footer() {
           </svg>
         </Link>
         <Link
-          href="https://github.com/cbonoz"
+          href={GITHUB_LINK}
           className="group"
           aria-label="cbonoz on GitHub"
         >
