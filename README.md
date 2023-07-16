@@ -59,24 +59,31 @@ Override env variable `NEXT_PUBLIC_SERVER_URL` with your url of the serverless/b
 ## Screenshots
 
 ### Home page
+
 <img src='img/home.png'width=800 />
 
 ### Creation form
+
 <img src='img/form.png'width=800 />
 
 ### Example results (test 1)
+
 <img src='img/results1.png'width=800 />
 
 ### Example results (test 2)
+
 <img src='img/results2.png'width=800 />
 
 ### Serverless config (backend and storage)
+
 <img src='img/serverless.png'width=800 />
 
 ### TiDB dashboard
+
 <img src='img/dashboard.png'width=800 />
 
 ### TiDB dashboard
+
 <img src='img/dashboard.png'width=800 />
 
 ### TiDB Schema and example entries
