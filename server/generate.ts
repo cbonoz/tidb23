@@ -57,6 +57,7 @@ export const createBabyNames = async (gender: string, description: string, lastN
             'insert into name_results(gender, description, last_name, attributes, result) values (?, ?, ?, ?, ?)',
             [gender, description, lastName, attributeString, result]
         )
+        console.log('saved result to db')
     } catch (e) {
         // TODO: add additional error reporting.
         console.error('error saving name result to db', e)

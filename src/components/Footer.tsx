@@ -32,7 +32,7 @@ export default function Footer() {
         <Link
           href={GITHUB_LINK}
           className="group"
-          aria-label="cbonoz on GitHub"
+          aria-label="Project on GitHub"
         >
           <svg
             aria-hidden="true"

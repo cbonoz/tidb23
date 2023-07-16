@@ -26,7 +26,7 @@ The app combines several technologies. The frontend of the app was developed usi
 
 ## Challenges we ran into
 
-During the development of Babynaming.pro, we faced several challenges. Integrating OpenAI's language model into the backend and ensuring efficient communication with the frontend required careful coordination and implementation. We also encountered scalability issues when handling a large number of user requests, which we addressed by utilizing the distributed nature of TiDB. Additionally, fine-tuning the language model to generate culturally appropriate names posed a challenge, as it required extensive training and validation.
+During the development of Babynaming.pro, we faced several challenges. Integrating OpenAI's language model into the backend and ensuring efficient communication with the frontend required careful coordination and implementation. Additionally, fine-tuning the language model to generate culturally appropriate names posed a challenge, as it required extensive training and validation to ensure the the different user inputs result in a consistent / parse-able model from the backend. TiDB is used to aggregate all the requests, and over time will create a large index of names and properties that can be reported on and analyzed in the future.
 
 
 
@@ -34,21 +34,25 @@ During the development of Babynaming.pro, we faced several challenges. Integrati
 
 Override env variables in .env.sample and copy to .env using your TIDB database settings.
 
+
 ### Server
 
-This app uses an AWS lambda deployment 
+This app uses an AWS lambda deployment. Important: the `.env` file in the `./server` folder should be filled with your values before deploy.
 
-
-./server: `yarn; yarn deploy` 
+./server: `yarn; yarn deploy`  # yarn deploy uses the 'personal' aws profile
 
 Note: See the command in package.json for adjustment or to use another AWS profile.
 
 ### Client
 
-Override env variable `NEXT_PUBLIC_SERVER_URL` with the url of the serverless/base server path.
+<pre>
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY= # optional/future: add a charging method for requests
+    NEXT_PUBLIC_SERVER_URL= # required: base url for the `/server` project (currently a configured as a lambda function)
+</pre>
+
+Override env variable `NEXT_PUBLIC_SERVER_URL` with your url of the serverless/base server path.
 
 `yarn; yarn dev`
-
 
 
 

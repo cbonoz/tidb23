@@ -2,24 +2,22 @@ import { generateNames, validateData } from '@/api';
 import Header from '@/components/Header'
 import NameRow from '@/components/NameRow';
 import { NameResult, NamingForm } from '@/model'
-import { STRIPE_PUBLISHABLE_KEY } from '@/util/constants';
+import { DEFAULT_FORM, STRIPE_PUBLISHABLE_KEY } from '@/util/constants';
 import { loadStripe } from '@stripe/stripe-js';
 import Head from 'next/head'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 // https://stripe.com/docs/payments/accept-a-payment-charges?platform=web
 // const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
 
 export default function Names() {
-    const [data, setData] = React.useState<NamingForm>({
-        lastName: '',
-        attributes: [],
-        description: '',
-    })
+    const [data, setData] = React.useState<NamingForm>({...DEFAULT_FORM})
     const [showForm, setShowForm] = React.useState<boolean>(false)
     const [error, setError] = React.useState<string | null>(null)
     const [loading, setLoading] = React.useState<boolean>(false)
     const [results, setResults] = React.useState<NameResult[]>([])
+
+    const resultRef = useRef(null)
 
     const updateData = (key: string, value: any) => {
         setData({
@@ -27,6 +25,18 @@ export default function Names() {
             [key]: value
         })
     }
+
+    const clearForm = () => {
+        setData({...DEFAULT_FORM})
+        setResults([])
+    }
+
+     // Function to scroll to the element
+  const scrollToResult = () => {
+    if (resultRef.current) {
+      resultRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
     const generate = async () => {
         setLoading(true)
@@ -50,6 +60,7 @@ export default function Names() {
                 try {
                     const parsed = JSON.parse(response)
                     setResults(parsed)
+                    scrollToResult()
                 } catch (e) {
                     setError(response)
                 }
@@ -91,7 +102,7 @@ export default function Names() {
                     type="text"
                     value={data.description}
                     onChange={(e) => updateData('description', e.target.value)}
-                    placeholder="Add additional information about what you want your child to achieve. Use complete sentences."
+                    placeholder="Add additional information about what you want your child to achieve. Use complete sentences (ex: I want my child to be a doctor or an entrepreneur.)"
 
                 />
 
@@ -133,9 +144,14 @@ export default function Names() {
 
 
                 {results && results.length > 0 && (
-                    <div className='w-9/12 m-auto inline-block'>
+                    <div className='w-9/12 m-auto inline-block' ref={resultRef}>
                         <br/>
-                        <div className="mx-auto max-w-4xl font-display text-xl font-bold tracking-normal text-slate-100 sm:text-6xl my-4">
+                        Last name: {data.lastName}<br/>
+                        Attributes: {data.attributes}<br/>
+                        Description: {data.description}<br/>
+                        Gender: {data.gender}<br/>
+
+                        <div className="mx-auto max-w-4xl font-display text-xl font-bold tracking-normal text-slate-100 sm:text-6xl my-2">
                             Your results
                         </div>
                         {results.map((result, index) => (
@@ -143,7 +159,11 @@ export default function Names() {
                                 <NameRow result={result} />
                             </div>
                         ))}
+                        <br/>
+                <a href="#" onClick={() => clearForm()} className='text-orange-600 underline hover:text-orange-500'>Reset</a>
                     </div>)}
+
+                
             </main>
 
 
