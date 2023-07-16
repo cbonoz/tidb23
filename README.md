@@ -82,12 +82,9 @@ Override env variable `NEXT_PUBLIC_SERVER_URL` with your url of the serverless/b
 
 <img src='img/dashboard.png' width=800 />
 
-### TiDB dashboard
-
-<img src='img/dashboard.png' width=800 />
-
 ### TiDB Schema and example entries
-<img src='img/tidb.png'width=800 />
+
+<img src='img/tidb.png' width=800 />
 
 
 ## Potential future work
