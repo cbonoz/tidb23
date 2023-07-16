@@ -17,7 +17,7 @@ export default function Names() {
     const [loading, setLoading] = React.useState<boolean>(false)
     const [results, setResults] = React.useState<NameResult[]>([])
 
-    const resultRef = useRef(null)
+    const resultRef = useRef<null | HTMLDivElement>(null)
 
     const updateData = (key: string, value: any) => {
         setData({
