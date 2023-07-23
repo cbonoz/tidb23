@@ -10,15 +10,21 @@ Babynaming.pro
 
 Babynaming is a baby naming app that utilizes the capabilities of OpenAI, TiDB, and serverless functions to generate personalized and creative baby names. 
 
+
+Say goodbye to the days of endlessly scrolling through baby name books and websites, and say hello to the future of baby naming. Babynaming uses the modern capabilities of OpenAI, TiDB, and serverless functions to bring you a unique discovery experience tailored to your preferences and desires.
+
+Using a collaboration of TiDB, OpenAI, and AWS ensures that your experience is seamless and lightning-fast, enabling instant name suggestions and real-time updates as you explore different options. Bid farewell to waiting times and embrace the instant gratification of finding the perfect name in a matter of seconds.
+
 Submitted to the <a href="https://tidbhackathon2023.devpost.com/" target="_blank">TiDB Future app hackathon 2023.</a>
 
 Demo video:
 
-Live demo: <a href="babynaming.pro" target="_blank">babynaming</a>
+Live demo: <a href="babynaming.pro" target="_blank">babynaming.pro</a>
 
 ## Motivation
 
 With many expensive and disparate solutions out there, the inspiration behind Babynaming.pro came from the desire to provide parents with a modern and efficient tool for choosing the perfect name for their baby. We wanted to leverage the power of artificial intelligence, specifically OpenAI's language model, to generate unique and meaningful names based on various criteria that a potential parent could specify.
+
 
 The app allows users to input specific preferences such as gender, cultural background, and desired name characteristics. It then uses OpenAI's language model to generate a list of name suggestions that meet the provided criteria. The names are further refined and ranked using TiDB, a distributed SQL database, to ensure optimal performance and scalability. Finally, the app presents the user with a curated list of potential baby names. Every submission is saved to TiDB for reporting and understanding of app usage and naming over time.
 
