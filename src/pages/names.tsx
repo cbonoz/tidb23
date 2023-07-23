@@ -39,7 +39,7 @@ export default function Names() {
     };
 
     const generate = async () => {
-        // setLoading(true)
+        setLoading(true)
         setError(null)
         console.log("Generating names...")
 
