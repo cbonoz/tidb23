@@ -17,7 +17,7 @@ Using a collaboration of TiDB, OpenAI, and AWS ensures that your experience is s
 
 Submitted to the <a href="https://tidbhackathon2023.devpost.com/" target="_blank">TiDB Future app hackathon 2023.</a>
 
-Demo video:
+Demo video: https://youtu.be/Re4QmJ_sNwQ
 
 Live demo: <a href="babynaming.pro" target="_blank">babynaming.pro</a>
 
