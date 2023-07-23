@@ -26,7 +26,9 @@ Live demo: <a href="babynaming.pro" target="_blank">babynaming.pro</a>
 With many expensive and disparate solutions out there, the inspiration behind Babynaming.pro came from the desire to provide parents with a modern and efficient tool for choosing the perfect name for their baby. We wanted to leverage the power of artificial intelligence, specifically OpenAI's language model, to generate unique and meaningful names based on various criteria that a potential parent could specify.
 
 
-The app allows users to input specific preferences such as gender, cultural background, and desired name characteristics. It then uses OpenAI's language model to generate a list of name suggestions that meet the provided criteria. The names are further refined and ranked using TiDB, a distributed SQL database, to ensure optimal performance and scalability. Finally, the app presents the user with a curated list of potential baby names. Every submission is saved to TiDB for reporting and understanding of app usage and naming over time.
+The app allows users to input specific preferences such as gender, cultural background, and desired name characteristics. It then uses OpenAI's language model to generate a list of name suggestions that meet the provided criteria. The names are further refined and ranked using TiDB, a distributed SQL database, to ensure optimal performance and scalability. Finally, the app presents the user with a curated list of potential baby names. 
+
+Every submission is saved to TiDB for reporting and understanding of app usage and naming over time.
 
 
 ## How we built it

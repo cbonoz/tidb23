@@ -1,4 +1,4 @@
-import { generateNames, validateData } from '@/api';
+import { EXAMPLE_NAMES, generateNames, validateData } from '@/api';
 import Header from '@/components/Header'
 import NameRow from '@/components/NameRow';
 import { NameResult, NamingForm } from '@/model'
@@ -11,7 +11,7 @@ import React, { useRef, useState } from 'react'
 // const stripePromise = loadStripe(STRIPE_PUBLISHABLE_KEY);
 
 export default function Names() {
-    const [data, setData] = React.useState<NamingForm>({...DEFAULT_FORM})
+    const [data, setData] = React.useState<NamingForm>({ ...DEFAULT_FORM })
     const [showForm, setShowForm] = React.useState<boolean>(false)
     const [error, setError] = React.useState<string | null>(null)
     const [loading, setLoading] = React.useState<boolean>(false)
@@ -27,19 +27,19 @@ export default function Names() {
     }
 
     const clearForm = () => {
-        setData({...DEFAULT_FORM})
+        setData({ ...DEFAULT_FORM })
         setResults([])
     }
 
-     // Function to scroll to the element
-  const scrollToResult = () => {
-    if (resultRef?.current) {
-      resultRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+    // Function to scroll to the element
+    const scrollToResult = () => {
+        if (resultRef?.current) {
+            resultRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const generate = async () => {
-        setLoading(true)
+        // setLoading(true)
         setError(null)
         console.log("Generating names...")
 
@@ -143,27 +143,29 @@ export default function Names() {
                 </p>}
 
 
-                {results && results.length > 0 && (
-                    <div className='w-9/12 m-auto inline-block' ref={resultRef}>
-                        <br/>
-                        Last name: {data.lastName}<br/>
-                        Attributes: {data.attributes?.join(',')}<br/>
-                        Description: {data.description}<br/>
-                        Gender: {data.gender}<br/>
+                <div className='w-9/12 m-auto inline-block' ref={resultRef}>
+                    {results && results.length > 0 && (
+                        <div>
+                            Last name: {data.lastName}<br />
+                            Attributes: {data.attributes?.join(',')}<br />
+                            Description: {data.description}<br />
+                            Gender: {data.gender}<br />
 
-                        <div className="mx-auto max-w-4xl font-display text-xl font-bold tracking-normal text-slate-100 sm:text-6xl my-2">
-                            Your results
-                        </div>
-                        {results.map((result, index) => (
-                            <div key={index}>
-                                <NameRow result={result} />
+                            <div className="mx-auto max-w-4xl font-display text-xl font-bold tracking-normal text-slate-100 sm:text-6xl my-2">
+                                Your results
                             </div>
-                        ))}
-                        <br/>
-                <a href="#" onClick={() => clearForm()} className='text-orange-600 underline hover:text-orange-500'>Reset</a>
-                    </div>)}
+                            {results.map((result, index) => (
+                                <div key={index}>
+                                    <NameRow result={result} />
+                                </div>
+                            ))}
+                            <br />
+                            <a href="#" onClick={() => clearForm()} className='text-orange-600 underline hover:text-orange-500'>Reset</a>
+                        </div>
+                    )}
+                </div>
 
-                
+
             </main>
 
 
