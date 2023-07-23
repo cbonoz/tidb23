@@ -33,8 +33,8 @@ export default function Names() {
 
      // Function to scroll to the element
   const scrollToResult = () => {
-    if (resultRef.current) {
-      resultRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (resultRef?.current) {
+      resultRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -147,7 +147,7 @@ export default function Names() {
                     <div className='w-9/12 m-auto inline-block' ref={resultRef}>
                         <br/>
                         Last name: {data.lastName}<br/>
-                        Attributes: {data.attributes}<br/>
+                        Attributes: {data.attributes?.join(',')}<br/>
                         Description: {data.description}<br/>
                         Gender: {data.gender}<br/>
 

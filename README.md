@@ -1,6 +1,9 @@
 <p align='center'>
-    <img src="./public/logo_3_2.png" />
+    <img src="https://i.ibb.co/6ZN9zNh/logo.png" />
 </p>
+
+<br/>
+<br/>
 
 Babynaming.pro
 ---
